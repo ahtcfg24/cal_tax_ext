@@ -1,0 +1,22 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/icon128.png",
+         "16": "icons/icon16.png",
+         "48": "icons/icon48.png"
+      },
+      "default_popup": "popup.html"
+   },
+   "description": "精准计算税后收入，支持2025-2026最新政策，包含年终奖单独计税。",
+   "icons": {
+      "128": "icons/icon128.png",
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApyAcMFRgEZl8ML9iYE9LTAcAlekUzQQpoxQffPtTfvycr3yPRfe1FkTzp+DZ6Pomz1WNkUti12moBWwtn2ssR8ULSfuh/Z8/CD4ZysVOyur2zb1qR1dfZdHYs+AYGgMpA8uVMckiJ5uDwkierrnK54Ymwo8OyWWTj2fuScFovo6OE9rwsFRSDSIbCZnWmZ8UGucnaeVK5X3RAzfJf8MQPJivqikqVS+98mM3/RV6Sa42g6I/U21DqGOG176kXhlCEpA2o3dgOVkwANdFl0pXWje+ge+t9RUzRJH/v2M9sWiXbk/6sOqzHkIioKw2wOG/+jI43Sf15hzIdKk4h58YxQIDAQAB",
+   "manifest_version": 3,
+   "name": "税后工资计算器2025-2026年度最新",
+   "permissions": [  ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.0.1"
+}

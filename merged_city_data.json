@@ -1,0 +1,362 @@
+{
+  "上海市": {
+    "city": "上海",
+    "social_security_base_upper_limit": "37302",
+    "social_security_base_lower_limit": "7460",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "37302",
+    "housing_fund_base_lower_limit": "2690"
+  },
+  "乌鲁木齐市": {
+    "city": "乌鲁木齐",
+    "social_security_base_upper_limit": "25344",
+    "social_security_base_lower_limit": "5069",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "1%",
+    "housing_fund_base_upper_limit": "33480",
+    "housing_fund_base_lower_limit": "2070"
+  },
+  "兰州市": {
+    "city": "兰州",
+    "social_security_base_upper_limit": "22900",
+    "social_security_base_lower_limit": "4600",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "28422.24",
+    "housing_fund_base_lower_limit": "1960"
+  },
+  "北京市": {
+    "city": "北京",
+    "social_security_base_upper_limit": "35811",
+    "social_security_base_lower_limit": "7162",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%+3",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "35811",
+    "housing_fund_base_lower_limit": "2540"
+  },
+  "南京市": {
+    "city": "南京",
+    "social_security_base_upper_limit": "24762",
+    "social_security_base_lower_limit": "4952",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "41400",
+    "housing_fund_base_lower_limit": "2490"
+  },
+  "南宁市": {
+    "city": "南宁",
+    "social_security_base_upper_limit": "20715",
+    "social_security_base_lower_limit": "4143",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "28020",
+    "housing_fund_base_lower_limit": "2200"
+  },
+  "南昌市": {
+    "city": "南昌",
+    "social_security_base_upper_limit": "19575",
+    "social_security_base_lower_limit": "3915",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "29589",
+    "housing_fund_base_lower_limit": "5200"
+  },
+  "厦门市": {
+    "city": "厦门",
+    "social_security_base_upper_limit": "22607",
+    "social_security_base_lower_limit": "4043",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "32346",
+    "housing_fund_base_lower_limit": "2265"
+  },
+  "合肥市": {
+    "city": "合肥",
+    "social_security_base_upper_limit": "21556",
+    "social_security_base_lower_limit": "4311",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "30540",
+    "housing_fund_base_lower_limit": "2100"
+  },
+  "呼和浩特市": {
+    "city": "呼和浩特",
+    "social_security_base_upper_limit": "24537",
+    "social_security_base_lower_limit": "4907",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "29721",
+    "housing_fund_base_lower_limit": "2310"
+  },
+  "哈尔滨市": {
+    "city": "哈尔滨",
+    "social_security_base_upper_limit": "21030",
+    "social_security_base_lower_limit": "4206",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "27083",
+    "housing_fund_base_lower_limit": "1910"
+  },
+  "大连市": {
+    "city": "大连",
+    "social_security_base_upper_limit": "21792",
+    "social_security_base_lower_limit": "4359",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "30669",
+    "housing_fund_base_lower_limit": "2230"
+  },
+  "天津市": {
+    "city": "天津",
+    "social_security_base_upper_limit": "25620",
+    "social_security_base_lower_limit": "5124",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "27861",
+    "housing_fund_base_lower_limit": "2320"
+  },
+  "太原市": {
+    "city": "太原",
+    "social_security_base_upper_limit": "20991",
+    "social_security_base_lower_limit": "4198",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.3%",
+    "housing_fund_base_upper_limit": "28251",
+    "housing_fund_base_lower_limit": "1950"
+  },
+  "宁波市": {
+    "city": "宁波",
+    "social_security_base_upper_limit": "24060",
+    "social_security_base_lower_limit": "4462",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "38907",
+    "housing_fund_base_lower_limit": "2490"
+  },
+  "广州市": {
+    "city": "广州",
+    "social_security_base_upper_limit": "27549",
+    "social_security_base_lower_limit": "5510",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.2%",
+    "housing_fund_base_upper_limit": "39828",
+    "housing_fund_base_lower_limit": "2500"
+  },
+  "成都市": {
+    "city": "成都",
+    "social_security_base_upper_limit": "22938",
+    "social_security_base_lower_limit": "4588",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.4%",
+    "housing_fund_base_upper_limit": "31378",
+    "housing_fund_base_lower_limit": "2200"
+  },
+  "拉萨市": {
+    "city": "拉萨",
+    "social_security_base_upper_limit": "35331",
+    "social_security_base_lower_limit": "7066.2",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "34638",
+    "housing_fund_base_lower_limit": "2100"
+  },
+  "昆明市": {
+    "city": "昆明",
+    "social_security_base_upper_limit": "21789",
+    "social_security_base_lower_limit": "4357",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "32470.00",
+    "housing_fund_base_lower_limit": "1770"
+  },
+  "杭州市": {
+    "city": "杭州",
+    "social_security_base_upper_limit": "25299",
+    "social_security_base_lower_limit": "4986",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "40694",
+    "housing_fund_base_lower_limit": "2490"
+  },
+  "武汉市": {
+    "city": "武汉",
+    "social_security_base_upper_limit": "22488",
+    "social_security_base_lower_limit": "4498",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.3%",
+    "housing_fund_base_upper_limit": "34560.25",
+    "housing_fund_base_lower_limit": "2210"
+  },
+  "沈阳市": {
+    "city": "沈阳",
+    "social_security_base_upper_limit": "21792",
+    "social_security_base_lower_limit": "4359",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "29523",
+    "housing_fund_base_lower_limit": "1900"
+  },
+  "济南市": {
+    "city": "济南",
+    "social_security_base_upper_limit": "22518",
+    "social_security_base_lower_limit": "4504",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.3%",
+    "housing_fund_base_upper_limit": "32586",
+    "housing_fund_base_lower_limit": "2210"
+  },
+  "海口市": {
+    "city": "海口",
+    "social_security_base_upper_limit": "24564",
+    "social_security_base_lower_limit": "4912.8",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "29190.42",
+    "housing_fund_base_lower_limit": "2010"
+  },
+  "深圳市": {
+    "city": "深圳",
+    "social_security_base_upper_limit": "27549",
+    "social_security_base_lower_limit": "4775",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.2%",
+    "housing_fund_base_upper_limit": "44265",
+    "housing_fund_base_lower_limit": "2360"
+  },
+  "石家庄市": {
+    "city": "石家庄",
+    "social_security_base_upper_limit": "20034",
+    "social_security_base_lower_limit": "4007",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "26420",
+    "housing_fund_base_lower_limit": "2200"
+  },
+  "福州市": {
+    "city": "福州",
+    "social_security_base_upper_limit": "22607",
+    "social_security_base_lower_limit": "4043",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "31053",
+    "housing_fund_base_lower_limit": "2195"
+  },
+  "西宁市": {
+    "city": "西宁",
+    "social_security_base_upper_limit": "25929",
+    "social_security_base_lower_limit": "5300",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "30308",
+    "housing_fund_base_lower_limit": "2080"
+  },
+  "西安市": {
+    "city": "西安",
+    "social_security_base_upper_limit": "23250",
+    "social_security_base_lower_limit": "4650",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.3%",
+    "housing_fund_base_upper_limit": "31761",
+    "housing_fund_base_lower_limit": "2050"
+  },
+  "贵阳市": {
+    "city": "贵阳",
+    "social_security_base_upper_limit": "16137.25",
+    "social_security_base_lower_limit": "3227.45",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "25392",
+    "housing_fund_base_lower_limit": "1890"
+  },
+  "郑州市": {
+    "city": "郑州",
+    "social_security_base_upper_limit": "19155",
+    "social_security_base_lower_limit": "3831",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "27520",
+    "housing_fund_base_lower_limit": "2100"
+  },
+  "重庆市": {
+    "city": "重庆",
+    "social_security_base_upper_limit": "22017",
+    "social_security_base_lower_limit": "4404",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "1%",
+    "housing_fund_base_upper_limit": "30318",
+    "housing_fund_base_lower_limit": "2200"
+  },
+  "银川市": {
+    "city": "银川",
+    "social_security_base_upper_limit": "24774",
+    "social_security_base_lower_limit": "4955",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.5%",
+    "housing_fund_base_upper_limit": "32484",
+    "housing_fund_base_lower_limit": "2235"
+  },
+  "长春市": {
+    "city": "长春",
+    "social_security_base_upper_limit": "21966",
+    "social_security_base_lower_limit": "4393.2",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%+3",
+    "unemployment_insurance_ratio": "1%",
+    "housing_fund_base_upper_limit": "28949",
+    "housing_fund_base_lower_limit": "1870"
+  },
+  "长沙市": {
+    "city": "长沙",
+    "social_security_base_upper_limit": "20361",
+    "social_security_base_lower_limit": "4072",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.3%",
+    "housing_fund_base_upper_limit": "31291",
+    "housing_fund_base_lower_limit": "2100"
+  },
+  "青岛市": {
+    "city": "青岛",
+    "social_security_base_upper_limit": "22078",
+    "social_security_base_lower_limit": "4416",
+    "endowment_insurance_ratio": "8%",
+    "medical_insurance_ratio": "2%",
+    "unemployment_insurance_ratio": "0.3%",
+    "housing_fund_base_upper_limit": "33093",
+    "housing_fund_base_lower_limit": "2200"
+  }
+}

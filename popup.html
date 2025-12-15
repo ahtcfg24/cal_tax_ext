@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>税后工资计算器</title>
+    <link rel="stylesheet" href="popup.css">
+    <!-- FontAwesome is optional but helps with icons. Using CDN might be blocked by strict CSP in some contexts, 
+         but for a local extension without strict CSP it might work. 
+         However, for a robust extension, it's better to use local SVG icons or text.
+         I will replace icons with simple text or local SVG if needed, but for now I will try to include the CDN link 
+         and if it fails, the text will just show without icon.
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>
+            <i class="fa fa-calculator"></i> 税后工资计算器
+        </h1>
+        <p>2025-2026最新政策 | 含年终奖单独计税
+            <span class="header-links" style="margin-left:12px;">
+                <a href="https://github.com/ahtcfg24/cal_tax_ext" target="_blank" rel="noopener noreferrer">插件说明</a>
+                &nbsp;|&nbsp;
+                <a href="https://github.com/ahtcfg24/cal_tax_ext/issues" target="_blank" rel="noopener noreferrer">问题反馈</a>
+            </span>
+        </p>
+    </header>
+
+    <main>
+        <!-- 输入区域 -->
+        <div class="card">
+            <form id="salaryForm">
+                <!-- 城市选择 -->
+                <div class="form-group">
+                    <label for="cityTier">工作城市</label>
+                    <select id="cityTier">
+                        <option value="shanghai" selected>上海市</option>
+                        <option value="beijing">北京市</option>
+                        <option value="shenzhen">深圳市</option>
+                        <option value="guangzhou">广州市</option>
+                        <option value="hangzhou">杭州市</option>
+                        <option value="chengdu">成都市</option>
+                        <option value="tianjin">天津市</option>
+                        <option value="chongqing">重庆市</option>
+                        <option value="ningbo">宁波市</option>
+                        <option value="shijiazhuang">石家庄市</option>
+                        <option value="taiyuan">太原市</option>
+                        <option value="huhehaote">呼和浩特市</option>
+                        <option value="shenyang">沈阳市</option>
+                        <option value="changchun">长春市</option>
+                        <option value="haerbin">哈尔滨市</option>
+                        <option value="nanjing">南京市</option>
+                        <option value="hefei">合肥市</option>
+                        <option value="fuzhou">福州市</option>
+                        <option value="nanchang">南昌市</option>
+                        <option value="jinan">济南市</option>
+                        <option value="zhengzhou">郑州市</option>
+                        <option value="wuhan">武汉市</option>
+                        <option value="changsha">长沙市</option>
+                        <option value="nanning">南宁市</option>
+                        <option value="haikou">海口市</option>
+                        <option value="guiyang">贵阳市</option>
+                        <option value="kunming">昆明市</option>
+                        <option value="lasa">拉萨市</option>
+                        <option value="xian">西安市</option>
+                        <option value="lanzhou">兰州市</option>
+                        <option value="xining">西宁市</option>
+                        <option value="yinchuan">银川市</option>
+                        <option value="wulumuqi">乌鲁木齐市</option>
+                        <option value="dalian">大连市</option>
+                        <option value="qingdao">青岛市</option>
+                        <option value="xiamen">厦门市</option>
+                        <option value="other">其他城市</option>
+                    </select>
+                    <p class="hint">暂时仅支持上述城市列表</p>
+                </div>
+
+                <!-- 自定义社保比例（仅“其他城市”时可填） -->
+                <div class="form-group hidden" id="customSocialGroup">
+                    <label>自定义社保个人缴纳比例</label>
+                    <div class="flex-row" style="gap: 12px; flex-wrap: wrap;">
+                        <label style="display:flex; align-items:center; gap:6px; font-size:13px;">
+                            养老
+                            <input type="number" id="otherPensionRatio" min="0" step="0.01" value="8" style="width:80px;"> %
+                        </label>
+                        <label style="display:flex; align-items:center; gap:6px; font-size:13px;">
+                            医疗
+                            <input type="number" id="otherMedicalRatio" min="0" step="0.01" value="2" style="width:80px;"> %
+                        </label>
+                        <label style="display:flex; align-items:center; gap:6px; font-size:13px;">
+                            失业
+                            <input type="number" id="otherUnemploymentRatio" min="0" step="0.01" value="0.5" style="width:80px;"> %
+                        </label>
+                    </div>
+                    <p class="hint">仅当选择“其他城市”时生效，默认 8%、2%、0.5%</p>
+                </div>
+
+                <!-- 税前月薪 -->
+                <div class="form-group">
+                    <label for="monthlySalary">税前月薪 (元)</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">¥</span>
+                        <input type="number" id="monthlySalary" placeholder="例如：20000" min="0" required>
+                    </div>
+                </div>
+
+                <!-- 社保基数 -->
+                <div class="form-group">
+                    <label for="socialBase">社保缴费基数 (元)</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">¥</span>
+                        <input type="number" id="socialBase" placeholder="默认等于税前月薪" min="0">
+                    </div>
+                    <p class="hint">范围：7460-37302元</p>
+                    <p class="hint" id="socialRatioHint">当前城市社保个人缴纳比例：--</p>
+                </div>
+
+                <!-- 公积金基数 -->
+                <div class="form-group">
+                    <label for="fundBase">公积金缴费基数 (元)</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">¥</span>
+                        <input type="number" id="fundBase" placeholder="默认等于税前月薪" min="0">
+                    </div>
+                    <p class="hint">范围：7460-37302元</p>
+                </div>
+
+                <!-- 公积金比例 -->
+                <div class="form-group">
+                    <label>公积金缴纳比例 (%)</label>
+                    <div class="range-container" style="margin-bottom: 12px;">
+                        <span style="font-size: 12px; color: #666; width: 60px;">个人:</span>
+                        <input type="range" id="fundRatio" min="0" max="12" step="1" value="12">
+                        <span id="fundRatioValue" class="range-value">12%</span>
+                    </div>
+                    <div class="range-container">
+                        <span style="font-size: 12px; color: #666; width: 60px;">公司:</span>
+                        <input type="range" id="companyFundRatio" min="0" max="12" step="1" value="12">
+                        <span id="companyFundRatioValue" class="range-value">12%</span>
+                    </div>
+                </div>
+
+                <!-- 专项附加扣除 -->
+                <div class="form-group">
+                    <label for="specialDeduction">每月专项附加扣除总额 (元)</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">¥</span>
+                        <input type="number" id="specialDeduction" placeholder="例如：2000" min="0" value="0">
+                    </div>
+                    
+                    <!-- 专项附加扣除多选区 -->
+                    <div class="deduction-rows">
+                        <!-- 子女教育 -->
+                        <div class="deduction-row">
+                            <span class="row-label">子女教育：</span>
+                            <div class="row-options">
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="2000" data-type="children_100"> 100% (2000)
+                                </label>
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="1000" data-type="children_50"> 50% (1000)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 婴幼儿照护 -->
+                        <div class="deduction-row">
+                            <span class="row-label">3岁以下婴幼儿照护：</span>
+                            <div class="row-options">
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="2000" data-type="baby_100"> 100% (2000)
+                                </label>
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="1000" data-type="baby_50"> 50% (1000)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 赡养老人 -->
+                        <div class="deduction-row">
+                            <span class="row-label">赡养老人：</span>
+                            <div class="row-options">
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="3000" data-type="elder"> 独生 (3000)
+                                </label>
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="1500" data-type="elder_share"> 分摊 (1500)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 继续教育 -->
+                        <div class="deduction-row">
+                            <span class="row-label">继续教育：</span>
+                            <div class="row-options">
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="400" data-type="education"> 学历 (400)
+                                </label>
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="300" data-type="cert"> 职业资格 (300)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 住房贷款 -->
+                        <div class="deduction-row">
+                            <span class="row-label">房贷利息：</span>
+                            <div class="row-options">
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="1000" data-type="loan_100"> 100% (1000)
+                                </label>
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="500" data-type="loan_50"> 50% (500)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 住房租金 -->
+                        <div class="deduction-row" id="rentDeductionRow">
+                            <span class="row-label">住房租金：</span>
+                            <div class="row-options">
+                                <label class="checkbox-btn">
+                                    <input type="checkbox" value="1500" data-type="rent"> 扣除 (1500)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="hint">选中上方项目可自动累加扣除额；住房租金扣除标准根据当前选择城市自动适配</p>
+                </div>
+
+                <!-- 年终奖金额 -->
+                <div class="form-group">
+                    <label for="yearBonus">年终奖金额 (元)</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">¥</span>
+                        <input type="number" id="yearBonus" placeholder="例如：50000" min="0" value="0">
+                    </div>
+                    <!-- 快速填入年终奖 -->
+                    <div class="quick-bonus-group" style="margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px;">
+                         <button type="button" class="checkbox-btn" data-months="2">2个月</button>
+                         <button type="button" class="checkbox-btn" data-months="3">3个月</button>
+                         <button type="button" class="checkbox-btn" data-months="4">4个月</button>
+                         <button type="button" class="checkbox-btn" data-months="6">6个月</button>
+                         <button type="button" class="checkbox-btn" data-months="8">8个月</button>
+                    </div>
+                    
+                    <!-- 年终奖计税方式 -->
+                    <div style="margin-top: 12px;">
+                        <label style="margin-bottom: 6px; font-size: 12px; color: #666;">计税方式：</label>
+                        <div style="display: flex; gap: 16px;">
+                            <label class="radio-label">
+                                <input type="radio" name="bonusTaxType" value="separate" checked> 单独计税
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="bonusTaxType" value="combine"> 并入综合所得(累积计税)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 年终奖发放月份 -->
+                <div class="form-group" id="bonusMonthGroup">
+                    <label for="bonusMonth">年终奖发放月份</label>
+                    <select id="bonusMonth">
+                        <option value="1" selected>1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <p class="hint" id="bonusMonthHint">年终奖将并入发放当月的税后收入</p>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fa fa-calculator" style="margin-right:8px;"></i> 计算税后收入
+                </button>
+            </form>
+        </div>
+
+        <!-- 结果展示区域 -->
+        <div id="resultContainer" class="card opacity-0 hidden">
+            <h2>计算结果</h2>
+            
+            <!-- 年度汇总 -->
+            <div style="margin-bottom: 20px;">
+                <h3>年度汇总</h3>
+                <div class="table-container annual-table-container">
+                    <table class="annual-table">
+                        <thead>
+                            <tr>
+                                <th>税前收入</th>
+                                <th>社保个税</th>
+                                <th>税后到手</th>
+                                <th>含公积金到手</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="annualPreTax">--</td>
+                                <td id="annualSocialTaxTotal">--</td>
+                                <td id="annualAfterTax">--</td>
+                                <td id="annualTotalIncome">--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="wx-detail" id="annualDetail">
+                    <!-- JS填充年度详情（默认展开，不可折叠） -->
+                </div>
+            </div>
+
+            <!-- 每月到手工资（与小程序一致：主表 + 可展开详情） -->
+            <div style="margin-bottom: 20px;">
+                <h3>每月到手工资</h3>
+                <div style="text-align:left; font-size:12px; color:#666; margin-bottom:5px;">单位：元</div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>月份</th>
+                                <th>税前工资</th>
+                                <th>税后到手</th>
+                                <th>含公积金到手</th>
+                            </tr>
+                        </thead>
+                        <tbody id="monthsTableBody">
+                            <!-- JS生成的行 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 打赏支持 -->
+            <div class="card" style="margin-bottom: 20px;">
+                <h3>打赏支持</h3>
+                <p style="margin: 8px 0 12px 0; color: #4b5563; font-size: 13px;">维护城市社保/公积金数据很繁琐，如有帮助期待获得您的打赏支持：</p>
+                <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 160px; text-align:center;">
+                        <div style="font-weight: 600; margin-bottom: 8px;">微信</div>
+                        <img src="assets/donation-wechat.png" alt="微信收款码" loading="lazy" decoding="async" width="180" height="210" style="width: 180px; height: 210px; object-fit: cover; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12);">
+                    </div>
+                    <div style="flex: 1; min-width: 160px; text-align:center;">
+                        <div style="font-weight: 600; margin-bottom: 8px;">支付宝</div>
+                        <img src="assets/donation-alipay.png" alt="支付宝收款码" loading="lazy" decoding="async" width="180" height="210" style="width: 180px; height: 210px; object-fit: cover; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.12);">
+                    </div>
+                </div>
+            </div>
+
+            <!-- 月度明细已并入“每月到手工资”表格展开区 -->
+        </div>
+
+        <!-- 初始提示 -->
+        <div id="initialPrompt" class="initial-prompt">
+            <i class="fa fa-info-circle"></i>
+            <p>请填写上方信息并点击计算按钮</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>2025-2026税后收入计算器 © 2025</p>
+    </footer>
+
+    <script src="popup.js"></script>
+</body>
+</html>
+
